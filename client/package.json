@@ -11,8 +11,12 @@
   "author": "Hosain Ibna Bashar",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^9.7.4",
+    "css-loader": "^3.4.2",
+    "postcss-loader": "^3.0.0",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "style-loader": "^1.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",

@@ -1,7 +1,10 @@
 import React from "react";
 
+import styles from "./app.scss";
+
 const App = () => {
-    return <div>This is the app</div>;
+    console.log("Styles: ", styles);
+    return <main className={styles.main}>This is the app</main>;
 };
 
 export default App;

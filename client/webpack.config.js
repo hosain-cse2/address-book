@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const autoprefixer = require("autoprefixer");
 // const SRC_DIR = path.join(__dirname, "src");
 // const nodeModulesRegex = "/node_modules/";
 
@@ -18,7 +19,29 @@ module.exports = {
                 use: {
                   loader: "babel-loader"
                 }
-            }
+            },
+            {
+              test: /\.(scss|css)$/,
+              use: [
+                  "style-loader",
+                  {
+                    loader: "css-loader",
+                    options: {
+                      modules: {
+                        localIdentName: "[local]---[hash:base64:5]"
+                      },
+                      importLoaders: 1
+                    }
+                  },
+                  {
+                      loader: "postcss-loader",
+                      options: {
+                        ident: "postcss",
+                        plugins: () => [autoprefixer()]
+                      }
+                  }
+              ]
+          }
             // {
             //     test: /\.jsx?$/,
             //     enforce: "pre",
