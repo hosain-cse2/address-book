@@ -33,6 +33,7 @@ module.exports = {
                       importLoaders: 1
                     }
                   },
+                  "sass-loader",
                   {
                       loader: "postcss-loader",
                       options: {
