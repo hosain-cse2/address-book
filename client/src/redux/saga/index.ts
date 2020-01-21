@@ -8,7 +8,7 @@ function* helloSaga() {
 
 function* addContact() {
   yield delay(1000)
-  yield put({ type: 'addContact' })
+  yield put({ type: 'ADD_CONTACT',  })
 }
 
 function* watchIncrementAsync() {
