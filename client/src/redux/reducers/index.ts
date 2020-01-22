@@ -1,7 +1,8 @@
 const reducer = (state = [], action) => {
     switch (action.type) {
         case "ADD_CONTACT":
-            return [...state, action.data];
+            console.log("action.data: ", action.payload);
+            return [...state, action.payload];
             break;    
         default:
             return state;

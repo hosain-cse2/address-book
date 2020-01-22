@@ -5,7 +5,7 @@ const autoprefixer = require("autoprefixer");
 // const nodeModulesRegex = "/node_modules/";
 
 module.exports = {
-    entry: ["./src/index.jsx"],
+    entry: ["@babel/polyfill", "./src/index.jsx"],
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "index.js",
@@ -166,7 +166,7 @@ module.exports = {
         historyApiFallback: true
     },
     resolve: {
-        extensions: [".tsx", ".jsx", ".js", ".sass", ".scss", ".css"]
+        extensions: [".tsx", ".jsx", ".js", ".ts", ".sass", ".scss", ".css"]
     },
     plugins: [
         new HtmlWebpackPlugin({

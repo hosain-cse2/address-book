@@ -6,9 +6,9 @@ function* helloSaga() {
   console.log('Hello Sagas!')
 }
 
-function* addContact() {
+function* addContact({payload}) {
   yield delay(1000)
-  yield put({ type: 'ADD_CONTACT',  })
+  yield put({ type: 'ADD_CONTACT',  payload})
 }
 
 function* watchIncrementAsync() {
