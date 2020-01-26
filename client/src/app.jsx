@@ -1,10 +1,8 @@
 import React from "react";
 
-import AddressBookEntry from "./components/AddressBook/AddressBookEntry";
-
 /* React Store Import Starts */
 import { createStore, applyMiddleware } from 'redux';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import { logger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './redux/saga';
@@ -20,19 +18,27 @@ const store = createStore(
 sagaMiddleware.run(rootSaga);
 
 
-import StoreContext from './context/storeContext';
+// import StoreContext from './context/storeContext';
+import AddressBookEntry from "./components/AddressBook/AddressBookEntry";
+import AddressList from "./components/AddressList";
+import Header from "./components/Header";
+
 import styles from "./app.scss";
 
 /* Redux Action Call Starts */
-export const action = (type, payload) => store.dispatch({type, payload})
+// export const action = (type, payload) => store.dispatch({type, payload})
 
 const App = () => {
     return (
-        <StoreContext.Provider value={{store, action}}>
+        // <StoreContext.Provider value={{store, action}}>
+        <Provider store={store}>
+            <Header />
             <main className={styles.main}>
                 <AddressBookEntry />
+                <AddressList />
             </main>
-        </StoreContext.Provider>
+        </Provider>
+        // </StoreContext.Provider>
     );
 };
 

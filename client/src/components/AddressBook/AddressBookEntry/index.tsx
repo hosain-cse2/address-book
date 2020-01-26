@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 
-import StoreContext from '../../../context/storeContext';
+// import StoreContext from '../../../context/storeContext';
+
+import { useDispatch } from 'react-redux';
 
 import styles from "./addressBookEntry.scss";
 
 const AddressBookEntry = () => {
     const [contact, setContact] = useState({name: "", street: "", post: "", city: "", country: "", mobile: ""});
 
+    const dispatch = useDispatch();
+
     const inputChanged = (event) => {
         const propName = event.target.name;
         setContact({...contact, [propName]: event.target.value});
     }
 
-    const addContact = (action) => {
-        action("ADD_CONTACT_INITIATE", contact)
+    const addContact = () => {
+        dispatch({type: "ADD_CONTACT_INITIATE", payload: contact})
     };
 
     return (
@@ -43,12 +47,12 @@ const AddressBookEntry = () => {
                 <input type="text" name="mobile" onChange={inputChanged} value={contact.mobile} />
             </div>
             <div>
-                <StoreContext.Consumer>
-                    {({action, store}) => {
-                        console.log("store:", store.getState());
-                        return <a onClick={() => addContact(action)}>Add Contact</a>;
-                    }}
-                </StoreContext.Consumer>
+                {/* <StoreContext.Consumer>
+                    {({action, store}) => { */}
+                        {/* console.log("store:", store.getState()); */}
+                        <a onClick={() => addContact()}>Add Contact</a>
+                    {/* }}
+                </StoreContext.Consumer> */}
             </div>
         </div>
     )

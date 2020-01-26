@@ -1,12 +1,16 @@
+/*
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+*/
 .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 380px;
+    min-width: 380px;
+    height: fit-content;
     padding: 40px;
     border: 1px solid grey;
     border-radius: 5px;
+    position: relative;
 
     & > div {
         margin-bottom: 20px;
